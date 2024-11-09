@@ -24,6 +24,8 @@ $font-family: "Montserrat", sans-serif;
 $font-header-weight: 700;
 $font-paragraph-weight: 400;
 
+
+
 h1,
 h2,
 h3,
@@ -85,3 +87,10 @@ nav {
 .custom-shadow{
   box-shadow: 0px 12px 24px 0px #001D5633;
 }
+
+* {
+  margin: 0;
+  padding: 0; 
+}
+
+
