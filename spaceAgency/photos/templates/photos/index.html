@@ -9,7 +9,18 @@
 
     <link type="text/css" rel="stylesheet" href="{% static 'photos/css/custom.css' %}">
     <link href="https://fonts.cdnfonts.com/css/montserrat" rel="stylesheet">
-    <script type="module" src="{% static 'js/main.js' %}"></script>
+
+    <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css">
+
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js"></script>
+    <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script type="text/javascript" src="{% static 'photos/js/main.js' %}"></script>
+
+    <link type="text/css" rel="stylesheet" href="{% static 'photos/css/slider.css' %}">
 
 </head>
 <title>Space Agency</title>
@@ -44,10 +55,10 @@
                 Национальное управление по аэронавтике и исследованию космического пространства — ведомство, относящееся
                 к федеральному правительству США и подчиняющееся непосредственно президенту США.
             </p>
-            <div class="container d-flex justify-content-between mt-5 mx-auto">
+            <div class="container d-flex justify-content-between mt-5">
                 <div class="d-flex flex-column flex-md-row">
                     <div class="row row-col d-flex flex-wrap justify-content-between mx-auto">
-                        <div class="col-6 text-center mb-4 d-flex flex-column align-items-center">
+                        <div class="col text-center mb-4 d-flex flex-column align-items-center">
                             <svg width="65" height="65" viewBox="0 0 65 65" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_601_33)">
@@ -65,9 +76,9 @@
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <p class="fw-bold py-3">Спейс шаттл — пилотируемые корабли</p>
+                            <p class="py-5">Спейс шаттлы —<br>пилотируемые корабли</p>
                         </div>
-                        <div class="col-6 text-center mb-4 d-flex flex-column align-items-center">
+                        <div class="col text-center mb-4 d-flex flex-column align-items-center">
                             <svg width="65" height="65" viewBox="0 0 65 65" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -78,10 +89,10 @@
                                     fill="#004382" />
                             </svg>
 
-                            <p class="fw-bold py-3">Лучшие телескопические наблюдения</p>
+                            <p class="py-5">Лучшее телескопическое<br>оборудование</p>
                         </div>
-
-                        <div class="col-6 text-center mb-4 d-flex flex-column align-items-center">
+                        <div></div>    
+                        <div class="col text-center mb-4 d-flex flex-column align-items-center">
                             <svg width="65" height="65" viewBox="0 0 65 65" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_601_39)">
@@ -98,9 +109,9 @@
                                     </clipPath>
                                 </defs>
                             </svg>
-                            <p class="fw-bold py-3">Цели на Луну и Марс</p>
+                            <p class="py-5">Целимся на Луну<br>и Марс</p>
                         </div>
-                        <div class="col-6 text-center mb-4 d-flex flex-column align-items-center">
+                        <div class="col text-center mb-4 d-flex flex-column align-items-center">
                             <svg width="65" height="65" viewBox="0 0 65 65" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <g clip-path="url(#clip0_601_50)">
@@ -118,36 +129,45 @@
                                 </defs>
                             </svg>
 
-                            <p class="fw-bold py-3">Золотая медаль по наукам исследованиям</p>
+                            <p class="py-5">Золотая медаль<br>по научным исследованиям</p>
                         </div>
                     </div>
                     <div class="d-flex justify-content-center justify-content-md-end">
-                        <img src="static/Фото.png" alt="Галактика" class="rounded-5 w-75 h-100 custom-shadow">
+                        <img src="{{ main_photo.image.url }}" alt="{{photo.image.title}}" class="rounded-5 custom-shadow main-image">
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+
+
     <!-- Gallery Section -->
     <section class="gallery-section text-center mt-5 py-5">
         <div class="container py-5 mx-auto">
-            <h2 class="text-white">Фотографии</h2>
+            <h2 class="text-white mb-5">Фотографии</h2>
             <div class="container">
-                <div class="main-photo my-5">
-                    <img src="main-photo.jpg" alt="Основное фото" class="rounded shadow-lg w-100">
+                <div class="slider-for">
+                    {% for photo in photos %}
+                        <div>
+                            <a href="{{ photo.image.url }}" data-fancybox="gallery">
+                                <img src="{{photo.image.url}}" class="rounded-5 mb-5">
+                            </a>
+                        </div>
+                    {% endfor %}
                 </div>
-                <div class="row d-flex justify-content-center">
-                    <div class="col-2"><img src="thumb1.jpg" class="img-fluid rounded"></div>
-                    <div class="col-2"><img src="thumb2.jpg" class="img-fluid rounded"></div>
-                    <div class="col-2"><img src="thumb3.jpg" class="img-fluid rounded"></div>
-                    <div class="col-2"><img src="thumb4.jpg" class="img-fluid rounded"></div>
-                    <div class="col-2"><img src="thumb5.jpg" class="img-fluid rounded"></div>
+                <div class="slider-nav">
+                    {% for photo in photos %}
+                        <div>
+                            <img src="{{ photo.image.url }}" class="rounded-5" alt="Thumbnail">
+                        </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>
     </section>
     </div>
 </body>
+
 
 </html>

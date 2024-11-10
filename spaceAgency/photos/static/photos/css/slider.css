@@ -1,0 +1,60 @@
+.slider-for img{
+  object-fit: cover;
+  width: 750px;
+  height: 450px;
+  box-shadow: 8px 17px 21px 0px #00000080;
+}
+
+.slider-nav img{
+  width: 165px;
+  height: 165px;
+  object-fit: cover;
+}
+
+.slick-initialized .slick-slide{
+  display: flex;
+  justify-content: center;
+}
+
+.slick-slide {
+  visibility: hidden;
+}
+.slick-active {
+  visibility: visible;
+}
+
+
+.slider-nav .slick-current img{
+  border: 4px solid white;
+}
+
+.main-image{
+  width:450px;
+  height: 450px;
+}
+
+.slick-dots {
+  display: none;
+}
+
+.slick-prev, .slick-next{
+  background-color: rgba(0,0,0,0);
+  border: none;
+  position: absolute;
+}
+
+.slick-prev{
+  left: 0;
+  top: 33%;
+}
+
+.slick-next{
+  right: 0;
+  top: 33%;
+}
+
+
+.fancybox-image {
+  border-radius: 20px;
+  object-fit: cover;
+}
